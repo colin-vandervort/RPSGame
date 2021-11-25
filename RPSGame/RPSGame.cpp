@@ -1,21 +1,54 @@
-// RPSGame.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
 
 int main()
 {
-    //Test
-    std::cout << "Hello World!\n";
+    GameModeScene gameModeScene;
+    gameModeScene.GameModeSelection();
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+//---------------------------------------------//
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+class Player {
+    //enum hand {none, rock, paper, scissors}
+    //enum playstyle {user, random, strategic}
+};
+
+class GameType
+{
+    //enum mode {bo3o3, bo3o5, endless}
+};
+
+class GameState
+{
+    //enum scene {introQ1, introQ2, gameQ, endScreen}
+};
+
+class Score
+{
+    int p1GameWins, p2GameWins, p1SetWins, p2SetWins;
+
+public:
+    void incrementWin(bool playerOneWin) {
+        if (playerOneWin) {
+
+        }
+        else {
+
+        }
+    }
+
+    int getP1GameWins() { return p1GameWins; }
+    int getP2GameWins() { return p2GameWins; }
+    int getP1SetWins() { return p1SetWins; }
+    int getP2SetWins() { return p2SetWins; }
+};
+
+//---------------------------------------------//
+
+class GameModeScene {
+public:
+    void GameModeSelection()
+    {
+        std::cout << "Hello!\nWould you like to play me in Rock Paper Scissors?\n\nI can play randomly or strategically.\n\nHow would you like to procede?\n\n[1] Randomly\n[2] Strategically\n[3] Quit\n\n";
+    }
+};
