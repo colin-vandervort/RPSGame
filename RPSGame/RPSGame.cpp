@@ -1,12 +1,4 @@
-#include <iostream>
-
-int main()
-{
-    GameModeScene gameModeScene;
-    gameModeScene.GameModeSelection();
-}
-
-//---------------------------------------------//
+#include "GameModeSelectionScene.h"
 
 class Player {
     //enum hand {none, rock, paper, scissors}
@@ -45,41 +37,15 @@ public:
 
 //---------------------------------------------//
 
-class GameModeScene {
-    string input;
-    std::vector<std::string> optionOneStrings {"1", "One", "ONE", "one", "RANDOMLY", "Randomly", "randomly", "R", "r", "Random", "RANDOM", "random", "Rand", "RAND", "rand"};
-    std::vector<std::string> optionTwoStrings {"2", "Two", "TWO", "two", "Strategically", "STRATEGICALLY", "strategically", "S", "s", "Strategic", "STRATEGIC", "strategic", "Str", "STR", "str"};
-    std::vector<std::string> optionThreeStrings {"3", "Three", "THREE", "three", "Quit", "QUIT", "quit", "Q", "q", "Esc", "ESC", "esc"};
 
-public:
-    void GameModeSelection()
-    {
-        std::cout << "Hello!" << endl;
-        std::cout << "Would you like to play me in Rock Paper Scissors?\n" << endl;
-        std::cout << "I can play randomly or strategically.\n" << endl;
-        std::cout << "How would you like to procede?\n" << endl;
-        std::cout << "[1] Randomly" << endl;
-        std::cout << "[2] Strategically" << endl;
-        std::cout << "[3] Quit\n" << endl;
 
-        std::cin >> input;
+//---------------------------------------------//
 
-        if(inArray(input, optionOneString)) {
-            
-        } else if (inArray(input, optionTwoString)){
-
-        } else if (inArray(input, optionThreeString)){
-
-        } else {
-
-        }
-    }
-
-    bool inArray(const std::string &value, const std::vector<std::string> &array)
-    {
-        return std::find(array.begin(), array.end(), value) != array.end()
-    }
-};
+int main()
+{
+    GameModeSelectionScene gameModeSelectionScene;
+    gameModeSelectionScene.DisplayGameModeSelectionScene();
+}
 
 
 
