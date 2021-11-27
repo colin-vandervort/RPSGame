@@ -13,13 +13,13 @@ void GameModeSelectionScene :: RequestInput(std::string input)
     std::vector<std::string> optionThreeStrings{ "3", "Three", "THREE", "three", "Quit", "QUIT", "quit", "Q", "q", "Esc", "ESC", "esc" };
 
     if (inArray(input, optionOneStrings)) {
-
+        //todo: Set AI state to Random, Clear command console, print confirmation statement, and then trigger function for next question
     }
     else if (inArray(input, optionTwoStrings)) {
-
+        //todo: Set AI state to Strategic, Clear command console, print confirmation statement, and then trigger function for next question
     }
     else if (inArray(input, optionThreeStrings)) {
-
+        //todo: Quit Command Console
     }
     else {
         //todo: Clear command console
