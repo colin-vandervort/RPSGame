@@ -139,11 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameState.cpp" />
     <ClCompile Include="RPSGame.cpp" />
-    <ClCompile Include="GameModeSelectionScene.cpp" />
+    <ClCompile Include="AISelectionScene.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameModeSelectionScene.h" />
+    <ClInclude Include="AIType.h" />
+    <ClInclude Include="AISelectionScene.h" />
+    <ClInclude Include="GameState.h" />
+    <ClInclude Include="GameType.h" />
     <ClInclude Include="InputHandler.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

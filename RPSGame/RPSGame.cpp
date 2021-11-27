@@ -1,19 +1,4 @@
-#include "GameModeSelectionScene.h"
-
-class Player {
-    //enum hand {none, rock, paper, scissors}
-    //enum playstyle {user, random, strategic}
-};
-
-class GameType
-{
-    //enum mode {bo3o3, bo3o5, endless}
-};
-
-class GameState
-{
-    //enum scene {introQ1, introQ2, gameQ, endScreen}
-};
+#include "AISelectionScene.h"
 
 class Score
 {
@@ -43,8 +28,11 @@ public:
 
 int main()
 {
-    GameModeSelectionScene gameModeSelectionScene;
-    gameModeSelectionScene.DisplayGameModeSelectionScene();
+    AISelectionScene aISelectionScene;
+    if (aISelectionScene.DisplayAISelectionScene())
+    {
+        
+    }
 }
 
 

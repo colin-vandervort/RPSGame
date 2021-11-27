@@ -2,5 +2,5 @@
 #include <string>
 
 class I_InputHandler {
-    virtual void RequestInput(std::string input) = 0;
+    virtual bool RequestInput(std::string input) = 0;
 };
