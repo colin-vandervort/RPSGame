@@ -1,4 +1,6 @@
 #include "AISelectionScene.h"
+#include "GameModeSelectionScene.h"
+#include "GameScene.h"
 
 class Score
 {
@@ -31,8 +33,13 @@ int main()
     AISelectionScene aISelectionScene;
     if (aISelectionScene.DisplayAISelectionScene())
     {
-        
+        GameModeSelectionScene gameModeSelectionScene;
+        gameModeSelectionScene.DisplayGameModeSelectionScene();
+
+        GameScene gameScene;
+        gameScene.DisplayGameScene();
     }
+    return 0;
 }
 
 

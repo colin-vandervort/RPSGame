@@ -1,11 +1,7 @@
 #include <iostream>
 #include "AISelectionScene.h"
 #include "GameState.h"
-
-bool AISelectionScene:: inArray(const std::string& value, const std::vector<std::string>& strings)
-{
-    return std::find(strings.begin(), strings.end(), value) != strings.end();
-}
+#include "SortingFunctions.h"
 
 bool AISelectionScene:: RequestInput(std::string input)
 {
@@ -13,19 +9,17 @@ bool AISelectionScene:: RequestInput(std::string input)
     std::vector<std::string> optionTwoStrings{ "2", "Two", "TWO", "two", "Strategically", "STRATEGICALLY", "strategically", "S", "s", "Strategic", "STRATEGIC", "strategic", "Str", "STR", "str" };
     std::vector<std::string> optionThreeStrings{ "3", "Three", "THREE", "three", "Quit", "QUIT", "quit", "Q", "q", "Esc", "ESC", "esc" };
 
-    GameState gameState;
-
-    if (inArray(input, optionOneStrings)) {
-        gameState.SetAIType(AIType::random);
+    if (SortingFunctions::inArray(input, optionOneStrings)) {
+        GameState::SetAIType(AIType::random);
         system("CLS");
         std::cout << "I am set to play randomly." << std::endl;
     }
-    else if (inArray(input, optionTwoStrings)) {
-        gameState.SetAIType(AIType::strategic);
+    else if (SortingFunctions::inArray(input, optionTwoStrings)) {
+        GameState::SetAIType(AIType::strategic);
         system("CLS");
         std::cout << "I am set to play strategically." << std::endl;
     }
-    else if (inArray(input, optionThreeStrings)) {
+    else if (SortingFunctions::inArray(input, optionThreeStrings)) {
         return false;
     }
     else {

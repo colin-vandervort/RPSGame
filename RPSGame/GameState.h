@@ -3,14 +3,12 @@
 #include "AIType.h"
 
 class GameState {
-	GameType gameType;
-	AIType aiType;
+	static GameType gameType;
+	static AIType aiType;
 
 public:
-	GameState(AIType aiT = AIType::random, GameType gT = GameType::endless);
-
-	GameType GetGameType();
-	AIType GetAIType();
-	void SetGameType(GameType gT);
-	void SetAIType(AIType aiT);
+	static GameType GetGameType();
+	static AIType GetAIType();
+	static void SetGameType(GameType gT);
+	static void SetAIType(AIType aiT);
 };

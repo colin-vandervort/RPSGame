@@ -1,10 +1,7 @@
 #include "GameState.h"
 
-GameState::GameState(AIType aiT, GameType gT)
-{
-	aiType = aiT;
-	gameType = gT;
-}
+GameType GameState::gameType = GameType::endless;
+AIType GameState::aiType = AIType::random;
 
 GameType GameState::GetGameType() { return gameType; };
 AIType GameState::GetAIType() { return aiType; };

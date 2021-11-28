@@ -1,9 +1,9 @@
 #pragma once
 #include "InputHandler.h"
 
-class AISelectionScene : I_InputHandler {
+class GameScene : I_InputHandler {
 	bool RequestInput(std::string input);
 
 public:
-	bool DisplayAISelectionScene();
+	void DisplayGameScene();
 };
