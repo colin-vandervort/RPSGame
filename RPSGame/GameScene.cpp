@@ -5,7 +5,7 @@
 #include "SortingFunctions.h"
 #include "Evaluations.h"
 
-bool GameScene::RequestInput(std::string input) {
+int GameScene::RequestInput(std::string input) {
 	std::vector<std::string> optionOneStrings{ "1", "One", "ONE", "one", "r", "R", "rock", "Rock", "ROCK" };
 	std::vector<std::string> optionTwoStrings{ "2", "Two", "TWO", "two", "p", "P", "paper", "Paper", "PAPER" };
 	std::vector<std::string> optionThreeStrings{ "3", "Three", "THREE", "three", "s", "S", "scissors", "Scissors", "SCISSORS" };
@@ -23,13 +23,17 @@ bool GameScene::RequestInput(std::string input) {
 	}
 	else {
 		system("CLS");
-		std::cout << "Invalid sign. What sign would you like to throw?\n" << std::endl;
+		std::cout << "Your game wins: " << Score::GetP1GameWins() << std::endl;
+		std::cout << "My game wins: " << Score::GetP2GameWins() << std::endl;
+		if (GameState::GetGameType() != GameType::endless) {
+			std::cout << "Your set wins: " << Score::GetP1SetWins() << std::endl;
+			std::cout << "My set wins: " << Score::GetP2SetWins() << std::endl;
+		}
+		std::cout << "\nInvalid input. What sign would you like to throw?\n" << std::endl;
 		std::cout << "[1] Rock" << std::endl;
 		std::cout << "[2] Paper" << std::endl;
 		std::cout << "[3] Scissors\n" << std::endl;
-
-		std::cin >> input;
-		RequestInput(input);
+		return -1;
 	}
 
 	return Evaluations::EvaluateMoves(i);
@@ -42,6 +46,8 @@ void GameScene::DisplayGameScene()
 	std::string mode;
 
 	int setCount = 0;
+	int lastThrow = 0;
+	int highestSetWins = 0;
 
 	switch (GameState::GetAIType())	{
 	case (AIType::random):
@@ -66,39 +72,49 @@ void GameScene::DisplayGameScene()
 		break;
 	}
 	
+	system("CLS");
+	std::cout << "Playing a " << opponent << " in " << mode << " match of Rock Paper Scissors.\n" << std::endl;
+	std::cout << "Your game wins: " << Score::GetP1GameWins() << std::endl;
+	std::cout << "My game wins: " << Score::GetP2GameWins() << std::endl;
+	if (GameState::GetGameType() != GameType::endless) {
+		std::cout << "Your set wins: " << Score::GetP1SetWins() << std::endl;
+		std::cout << "My set wins: " << Score::GetP2SetWins() << std::endl;
+	}
+	std::cout << "\nWhat sign would you like to throw?\n" << std::endl;
+	std::cout << "[1] Rock" << std::endl;
+	std::cout << "[2] Paper" << std::endl;
+	std::cout << "[3] Scissors\n" << std::endl;
+
 	if (GameState::GetGameType() == GameType::endless)
 	{
 		while (true) {
-			system("CLS");
-			std::cout << "Playing a " << opponent << " in " << mode << " match of Rock Paper Scissors.\n" << std::endl;
-			std::cout << "Your game wins: " << Score::GetP1GameWins() << std::endl;
-			std::cout << "My game wins: " << Score::GetP2GameWins() << "\n" << std::endl;
-			std::cout << "What sign would you like to throw?\n" << std::endl;
-			std::cout << "[1] Rock" << std::endl;
-			std::cout << "[2] Paper" << std::endl;
-			std::cout << "[3] Scissors\n" << std::endl;
+			int i = -1;
+			while (i < 0)
+			{
+				std::cin >> input;
+				i = RequestInput(input);
+			}
 
-			std::cin >> input;
-
-			Score::IncrementWin(RequestInput(input));
+			Score::IncrementWin(i);
 		}
 	}
 	else {
-		while (setCount > Score::GetP1SetWins() || setCount > Score::GetP2GameWins()) {
-			system("CLS");
-			std::cout << "Playing a " << opponent << " in " << mode << " match of Rock Paper Scissors.\n" << std::endl;
-			std::cout << "Your game wins: " << Score::GetP1GameWins() << std::endl;
-			std::cout << "My game wins: " << Score::GetP2GameWins() << std::endl;
-			std::cout << "Your set wins: " << Score::GetP1SetWins() << std::endl;
-			std::cout << "My set wins: " << Score::GetP2SetWins() << "\n" << std::endl;
-			std::cout << "What sign would you like to throw?\n" << std::endl;
-			std::cout << "[1] Rock" << std::endl;
-			std::cout << "[2] Paper" << std::endl;
-			std::cout << "[3] Scissors\n" << std::endl;
+		while (setCount > highestSetWins) {
+			int i = -1;
+			while (i < 0)
+			{
+				std::cin >> input;
+				i = RequestInput(input);
+			}
 
-			std::cin >> input;
+			Score::IncrementWin(i);
 
-			Score::IncrementWin(RequestInput(input));
+			if (Score::GetP1SetWins() > highestSetWins) {
+				highestSetWins = Score::GetP1SetWins();
+			}
+			if (Score::GetP2SetWins() > highestSetWins) {
+				highestSetWins = Score::GetP2SetWins();
+			}
 		}
 	}
 	return;

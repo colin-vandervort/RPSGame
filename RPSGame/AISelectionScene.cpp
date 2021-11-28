@@ -3,7 +3,7 @@
 #include "GameState.h"
 #include "SortingFunctions.h"
 
-bool AISelectionScene:: RequestInput(std::string input)
+int AISelectionScene:: RequestInput(std::string input)
 {
     std::vector<std::string> optionOneStrings{ "1", "One", "ONE", "one", "RANDOMLY", "Randomly", "randomly", "R", "r", "Random", "RANDOM", "random", "Rand", "RAND", "rand" };
     std::vector<std::string> optionTwoStrings{ "2", "Two", "TWO", "two", "Strategically", "STRATEGICALLY", "strategically", "S", "s", "Strategic", "STRATEGIC", "strategic", "Str", "STR", "str" };
@@ -20,7 +20,7 @@ bool AISelectionScene:: RequestInput(std::string input)
         std::cout << "I am set to play strategically." << std::endl;
     }
     else if (SortingFunctions::inArray(input, optionThreeStrings)) {
-        return false;
+        return 0;
     }
     else {
         system("CLS");
@@ -32,10 +32,9 @@ bool AISelectionScene:: RequestInput(std::string input)
         std::cout << "[2] Strategically" << std::endl;
         std::cout << "[3] Quit\n" << std::endl;
 
-        std::cin >> input;
-        RequestInput(input);
+        return -1;
     }
-    return true;
+    return 1;
 }
 
 bool AISelectionScene:: DisplayAISelectionScene() {
@@ -49,6 +48,12 @@ bool AISelectionScene:: DisplayAISelectionScene() {
     std::cout << "[2] Strategically" << std::endl;
     std::cout << "[3] Quit\n" << std::endl;
 
-    std::cin >> input;
-    return RequestInput(input);
+    int i = -1;
+    while (i == -1)
+    {
+        std::cin >> input;
+        i = RequestInput(input);
+    }
+
+    return i;
 }

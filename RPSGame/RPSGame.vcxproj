@@ -139,21 +139,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="EndScene.cpp" />
+    <ClCompile Include="Evaluations.cpp" />
     <ClCompile Include="GameModeSelectionScene.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="RPSGame.cpp" />
     <ClCompile Include="AISelectionScene.cpp" />
+    <ClCompile Include="Score.cpp" />
     <ClCompile Include="SortingFunctions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AIType.h" />
     <ClInclude Include="AISelectionScene.h" />
+    <ClInclude Include="EndScene.h" />
+    <ClInclude Include="Evaluations.h" />
     <ClInclude Include="GameModeSelectionScene.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GameType.h" />
     <ClInclude Include="InputHandler.h" />
+    <ClInclude Include="Score.h" />
     <ClInclude Include="SortingFunctions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
