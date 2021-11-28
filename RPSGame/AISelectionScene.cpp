@@ -3,6 +3,9 @@
 #include "GameState.h"
 #include "SortingFunctions.h"
 
+//"DisplayAISelectionScene" displays the initial scene questions and receives input, passing it off to the "RequestInput" method.
+//"RequestInput" handles received input, interprets it, and sets AI behavior depending on the selection.
+
 int AISelectionScene:: RequestInput(std::string input)
 {
     std::vector<std::string> optionOneStrings{ "1", "One", "ONE", "one", "RANDOMLY", "Randomly", "randomly", "R", "r", "Random", "RANDOM", "random", "Rand", "RAND", "rand" };

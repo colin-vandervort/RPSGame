@@ -5,6 +5,9 @@
 #include "SortingFunctions.h"
 #include "Evaluations.h"
 
+//"DisplayGameScene" handles the display and input queries for the actual RPS game scene. It also tracks match completion for state break-out code.
+//"RequestInput" interprets console input and converts it into Rock, Paper or Scissors int values.
+
 int GameScene::RequestInput(std::string input) {
 	std::vector<std::string> optionOneStrings{ "1", "One", "ONE", "one", "r", "R", "rock", "Rock", "ROCK" };
 	std::vector<std::string> optionTwoStrings{ "2", "Two", "TWO", "two", "p", "P", "paper", "Paper", "PAPER" };
@@ -13,13 +16,13 @@ int GameScene::RequestInput(std::string input) {
 	int i = 0;
 
 	if (SortingFunctions::inArray(input, optionOneStrings)) {
-		i = 1;
+		i = 1; //Rock
 	}
 	else if (SortingFunctions::inArray(input, optionTwoStrings)) {
-		i = 2;
+		i = 2; //Paper
 	}
 	else if (SortingFunctions::inArray(input, optionThreeStrings)) {
-		i = 3;
+		i = 3; //Scissors
 	}
 	else {
 		system("CLS");
@@ -61,11 +64,11 @@ void GameScene::DisplayGameScene()
 	switch (GameState::GetGameType()) {
 	case(GameType::bo3o3):
 		mode = "a best of three games of three sets";
-		setCount = 2;
+		setCount = 2; //Best 2 out of 3
 		break;
 	case(GameType::bo3o5):
 		mode = "a best of three games of five sets";
-		setCount = 3;
+		setCount = 3; //Best 3 out of 5
 		break;
 	case(GameType::endless):
 		mode = "an endless";

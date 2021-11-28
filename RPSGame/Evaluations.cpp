@@ -5,6 +5,8 @@
 #include "Score.h"
 #include "StrategyBrain.h"
 
+//"EvaluateMoves" receives the player's move, and depending on the AI behavior, evaluates a proper computer move to match it.
+
 int Evaluations::EvaluateMoves(int playerMove) {
 	if (GameState::GetAIType() == AIType::random) {
 		int computerMove = RandRange(1, 3);

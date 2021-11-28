@@ -2,6 +2,8 @@
 #include "Score.h"
 #include "GameState.h"
 
+//"IncrementWin" stores game wins and converts game wins into set wins.
+
 int Score::p1GameWins = 0;
 int Score::p2GameWins = 0;
 int Score::p1SetWins = 0;

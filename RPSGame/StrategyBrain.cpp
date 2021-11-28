@@ -1,8 +1,11 @@
 #include <cstdlib>
 #include "StrategyBrain.h"
 
+//"CalculateBestMove" is the 'strategic' logic for the AI, and tries to recognize and weight towards player patterns as a game progresses.
+//"UpdatePlayData" just handles storage of data necessary for logic to function.
+
 int StrategyBrain::numMoves = 0;
-int StrategyBrain::theirPrevMove = 0;
+int StrategyBrain::theirPrevMove = 0; //Currently unused, could be used to further extend logic.
 int StrategyBrain::myPrevMove = 0;
 
 int StrategyBrain::playSafeLikelihood = 1;

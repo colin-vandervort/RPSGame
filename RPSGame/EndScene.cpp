@@ -3,6 +3,8 @@
 #include "Score.h"
 #include "GameState.h"
 
+//"DisplayEndScene" simply displays the victory or defeat statistics at the end of match.
+
 void EndScene::DisplayEndScene() {
 	std::string endResult;
 	std::string aiBehavior;
