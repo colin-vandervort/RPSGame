@@ -3,27 +3,50 @@
 #include "Evaluations.h"
 #include "GameState.h"
 #include "Score.h"
+#include "StrategyBrain.h"
 
 int Evaluations::EvaluateMoves(int playerMove) {
 	if (GameState::GetAIType() == AIType::random) {
 		int computerMove = RandRange(1, 3);
-		if (computerMove == playerMove) {
+		if (computerMove == playerMove) { //Tie
 			DisplayResults(playerMove, computerMove, 0);
 			return 0;
 		}
-		else if (computerMove + 1 == playerMove || (computerMove == 3 && playerMove == 1)) {
-			DisplayResults(playerMove, computerMove, 2);
-			return 2;
-		}
-		else {
+		else if (computerMove + 1 == playerMove || (computerMove == 3 && playerMove == 1)) { //Player Wins
 			DisplayResults(playerMove, computerMove, 1);
 			return 1;
 		}
+		else { //Computer Wins
+			DisplayResults(playerMove, computerMove, 2);
+			return 2;
+		}
 	}
 	else {
+		int computerMove = 0;
+		int result = StrategyBrain::CalculateBestMove(playerMove);
+		if (result == 0) {
+			computerMove = playerMove;
+		}
+		else if (result == 1) {
+			if (playerMove == 1) {
+				computerMove = 3;
+			}
+			else {
+				computerMove = playerMove - 1;
+			}
+		}
+		else {
+			if (playerMove == 3) {
+				computerMove = 1;
+			}
+			else {
+				computerMove = playerMove + 1;
+			}
 
+		}
+		DisplayResults(playerMove, computerMove, result);
+		return result;
 	}
-	return false;
 }
 
 int Evaluations::RandRange(int offset, int range) {

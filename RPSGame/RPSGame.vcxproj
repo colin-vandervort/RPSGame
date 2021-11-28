@@ -148,6 +148,7 @@
     <ClCompile Include="AISelectionScene.cpp" />
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="SortingFunctions.cpp" />
+    <ClCompile Include="StrategyBrain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AIType.h" />
@@ -161,6 +162,7 @@
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="Score.h" />
     <ClInclude Include="SortingFunctions.h" />
+    <ClInclude Include="StrategyBrain.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
